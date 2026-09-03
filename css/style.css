@@ -358,11 +358,13 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   6. Section Layanan Digital (Main Card)
+   6. Section Layanan Digital (3 Cards Grid)
    -------------------------------------------------------------------------- */
 .layanan-wrapper {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: stretch;
 }
 
 .layanan-card {
@@ -370,13 +372,15 @@ img {
   border-radius: var(--border-radius-lg);
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-md);
-  padding: 3rem 2.5rem;
-  max-width: 780px;
+  padding: 2.5rem 1.75rem;
   width: 100%;
   text-align: center;
   position: relative;
   transition: var(--transition-normal);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .layanan-card::before {
@@ -396,17 +400,18 @@ img {
 }
 
 .layanan-icon-box {
-  width: 88px;
-  height: 88px;
+  width: 76px;
+  height: 76px;
   border-radius: 50%;
   background: linear-gradient(135deg, rgba(13, 92, 58, 0.1), rgba(25, 135, 84, 0.15));
   color: var(--primary-dark);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.5rem;
-  margin: 0 auto 1.75rem auto;
+  font-size: 2.2rem;
+  margin: 0 auto 1.5rem auto;
   transition: var(--transition-fast);
+  flex-shrink: 0;
 }
 
 .layanan-card:hover .layanan-icon-box {
@@ -416,38 +421,44 @@ img {
 }
 
 .layanan-card-title {
-  font-size: 1.65rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: var(--primary-dark);
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
+  line-height: 1.35;
+  min-height: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .layanan-card-desc {
-  font-size: 1.05rem;
+  font-size: 0.96rem;
   color: var(--text-muted);
-  margin-bottom: 2.2rem;
-  line-height: 1.65;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  flex-grow: 1;
 }
 
 .btn-form {
   background-color: var(--primary-dark);
   color: var(--bg-white);
-  font-size: 1.1rem;
-  padding: 1.1rem 2.8rem;
+  font-size: 1rem;
+  padding: 0.9rem 1.5rem;
   width: 100%;
-  max-width: 380px;
-  box-shadow: 0 8px 20px rgba(13, 92, 58, 0.25);
+  box-shadow: 0 6px 18px rgba(13, 92, 58, 0.2);
   letter-spacing: 0.5px;
+  margin-top: auto;
 }
 
 .btn-form:hover {
   background-color: var(--primary-green);
-  box-shadow: 0 12px 28px rgba(25, 135, 84, 0.35);
+  box-shadow: 0 10px 24px rgba(25, 135, 84, 0.3);
   transform: translateY(-2px);
 }
 
 .btn-form i {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -719,12 +730,20 @@ img {
     padding: 4rem 1.25rem;
   }
 
+  .layanan-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .layanan-card {
-    padding: 2.5rem 1.75rem;
+    padding: 2.2rem 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
+  .layanan-wrapper {
+    grid-template-columns: 1fr;
+  }
+
   .mobile-toggle {
     display: block;
   }
